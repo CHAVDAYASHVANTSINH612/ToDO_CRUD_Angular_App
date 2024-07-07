@@ -1,0 +1,29 @@
+<div class="btn btn-primary" [routerLink]="['add']">+ AddTask</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of taskList; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.dueDate | date: 'short' }}</td>
+            <td>
+                <span class="btn btn-success" [routerLink]="['edit',task.id]"
+                    routerLinkActive="router-link-active">Edit</span>
+                <span class="btn btn-danger" (click)="deleteTask(task.id)">Delete</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- 
+<div>{{ this.taskList[0].title }}</div>
+<div>{{ this.taskList[0] | json }}</div> -->

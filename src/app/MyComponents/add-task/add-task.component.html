@@ -1,0 +1,17 @@
+<h1>{{ id > 0 ? 'Edit Task' : 'Add Task' }}</h1>
+
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title" />
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input id="description" type="text" formControlName="description" />
+    </div>
+    <div>
+        <label for="dueDate">Due Date</label>
+        <input id="dueDate" type="datetime-local" formControlName="dueDate" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
